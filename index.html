@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Euforia Confeitaria Artesanal - Doces que despertam euforia</title>
+  
+  <!-- Meta tags para SEO -->
+  <meta name="description" content="Confeitaria artesanal especializada em bolos, cupcakes, docinhos e sobremesas únicas. Criamos momentos especiais com sabores que despertam euforia. Peça já pelo iFood!">
+  <meta name="keywords" content="confeitaria, bolos, cupcakes, docinhos, sobremesas, macarons, brownie, cookies, São Paulo, delivery, iFood">
+  <meta name="author" content="Euforia Confeitaria Artesanal">
+  
+  <!-- Open Graph para redes sociais -->
+  <meta property="og:title" content="Euforia Confeitaria Artesanal">
+  <meta property="og:description" content="Doces artesanais que despertam euforia. Bolos, cupcakes e sobremesas únicas feitas com amor e ingredientes selecionados.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/assets/logo-euforia.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <!-- Logo -->
+        <div class="logo">
+          <img src="/assets/logo-euforia.png" alt="Euforia Confeitaria" class="logo-img">
+          <span class="logo-text">Euforia</span>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="nav">
+          <a href="#inicio" class="nav-link">Início</a>
+          <a href="#produtos" class="nav-link">Produtos</a>
+          <a href="#sobre" class="nav-link">Sobre</a>
+          <a href="#contato" class="nav-link">Contato</a>
+        </nav>
+
+        <!-- Actions -->
+        <div class="header-actions">
+          <button class="btn-icon" onclick="toggleWishlist()" id="wishlist-btn">
+            <i data-lucide="heart"></i>
+            <span>Favoritos</span>
+            <span class="badge" id="wishlist-count">0</span>
+          </button>
+          
+          <button class="btn-icon" onclick="toggleCart()" id="cart-btn">
+            <i data-lucide="shopping-bag"></i>
+            <span>Carrinho</span>
+            <span class="badge" id="cart-count">0</span>
+          </button>
+
+          <button class="btn-mobile" onclick="toggleMobileMenu()">
+            <i data-lucide="menu" id="menu-icon"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="#inicio" onclick="closeMobileMenu()">Início</a>
+        <a href="#produtos" onclick="closeMobileMenu()">Produtos</a>
+        <a href="#sobre" onclick="closeMobileMenu()">Sobre</a>
+        <a href="#contato" onclick="closeMobileMenu()">Contato</a>
+        <div class="mobile-actions">
+          <button class="btn btn-outline" onclick="toggleWishlist(); closeMobileMenu()">
+            <i data-lucide="heart"></i>
+            Favoritos
+          </button>
+          <button class="btn btn-primary" onclick="toggleCart(); closeMobileMenu()">
+            <i data-lucide="shopping-bag"></i>
+            Carrinho
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-logo">
+            <img src="/assets/logo-euforia.png" alt="Euforia" class="hero-logo-img">
+            <div class="hero-logo-text">Euforia</div>
+          </div>
+          
+          <h1 class="hero-title">
+            <span class="gradient-text">Doces que</span><br>
+            <span>despertam euforia</span>
+          </h1>
+          
+          <p class="hero-description">
+            Criamos momentos especiais com sabores únicos e apresentações encantadoras. 
+            Cada doce é uma pequena obra de arte feita com amor e ingredientes selecionados.
+          </p>
+
+          <div class="hero-buttons">
+            <button class="btn btn-primary btn-lg" onclick="scrollToSection('produtos')">
+              Ver Produtos
+            </button>
+            <button class="btn btn-outline btn-lg" onclick="scrollToSection('contato')">
+              Fazer Encomenda
+            </button>
+            <button class="btn btn-ifood btn-lg" onclick="openIFood()">
+              <i data-lucide="utensils-crossed"></i>
+              Pedir no iFood
+            </button>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Clientes Felizes</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">50+</div>
+              <div class="stat-label">Produtos Únicos</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">5</div>
+              <div class="stat-label">Anos de Experiência</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=600&h=800&fit=crop" alt="Doces Artesanais" class="hero-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="produtos" class="products">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="gradient-text">Nossos Produtos</span>
+        </h2>
+        <p class="section-description">
+          Cada doce é preparado com ingredientes selecionados e muito amor, 
+          garantindo sabor e qualidade em cada mordida.
+        </p>
+      </div>
+
+      <div class="products-grid" id="products-grid">
+        <!-- Products will be loaded here by JavaScript -->
+      </div>
+
+      <div class="products-footer">
+        <button class="btn btn-outline btn-lg" id="toggle-products" onclick="toggleProducts()">
+          Ver Todos os Produtos
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="sobre" class="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2 class="section-title">
+            <span class="gradient-text">Nossa História</span>
+          </h2>
+          <p>
+            A Euforia nasceu do sonho de criar doces que despertam mais que sabor - despertam emoções. 
+            Cada receita é cuidadosamente desenvolvida para proporcionar uma experiência única e inesquecível.
+          </p>
+          <p>
+            Utilizamos apenas ingredientes premium e técnicas artesanais para garantir que cada doce 
+            seja uma pequena obra de arte. Nossa paixão é transformar momentos simples em celebrações especiais.
+          </p>
+          
+          <div class="about-features">
+            <div class="feature">
+              <i data-lucide="heart" class="feature-icon"></i>
+              <div>
+                <h3>Feito com Amor</h3>
+                <p>Cada doce é preparado com carinho e dedicação</p>
+              </div>
+            </div>
+            <div class="feature">
+              <i data-lucide="star" class="feature-icon"></i>
+              <div>
+                <h3>Ingredientes Premium</h3>
+                <p>Selecionamos apenas os melhores ingredientes</p>
+              </div>
+            </div>
+            <div class="feature">
+              <i data-lucide="award" class="feature-icon"></i>
+              <div>
+                <h3>Qualidade Artesanal</h3>
+                <p>Técnicas tradicionais com toque moderno</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=800&fit=crop" alt="Nossa Confeitaria" class="about-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contato" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="gradient-text">Entre em Contato</span>
+        </h2>
+        <p class="section-description">
+          Estamos prontos para criar o doce perfeito para o seu momento especial. 
+          Entre em contato conosco!
+        </p>
+      </div>
+
+      <div class="contact-content">
+        <div class="contact-form-container">
+          <h3>Faça sua Encomenda</h3>
+          <form class="contact-form" id="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Nome</label>
+                <input type="text" name="nome" placeholder="Seu nome completo" required>
+              </div>
+              <div class="form-group">
+                <label>Telefone</label>
+                <input type="tel" name="telefone" placeholder="(11) 99999-9999" required>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>E-mail</label>
+              <input type="email" name="email" placeholder="seu@email.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="label-with-action">
+                <span>Tipo de Produto</span>
+                <button type="button" class="btn-wishlist" onclick="fillFromWishlist()">
+                  ❤️ Usar da Wishlist <span id="wishlist-form-count"></span>
+                </button>
+              </label>
+              <input type="text" name="produto" id="produto-input" placeholder="Ex: Bolo de aniversário, cupcakes, docinhos...">
+            </div>
+            
+            <div class="form-group">
+              <label>Mensagem</label>
+              <textarea name="mensagem" rows="4" placeholder="Conte-nos mais detalhes sobre o que você deseja..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-lg">
+              Enviar via WhatsApp
+            </button>
+          </form>
+        </div>
+
+        <div class="contact-info">
+          <div class="contact-card">
+            <div class="contact-card-icon">
+              <i data-lucide="map-pin"></i>
+            </div>
+            <div>
+              <h4>Localização</h4>
+              <p>
+                Rua das Flores, 123<br>
+                Jardim Primavera, São Paulo - SP<br>
+                CEP: 01234-567
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-icon">
+              <i data-lucide="clock"></i>
+            </div>
+            <div>
+              <h4>Horário de Funcionamento</h4>
+              <p>Segunda a Sexta: 8h às 18h</p>
+              <p>Sábado: 8h às 16h</p>
+              <p>Domingo: 9h às 15h</p>
+            </div>
+          </div>
+
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="contact-method-icon">
+                <i data-lucide="phone"></i>
+              </div>
+              <div>
+                <h4>Telefone</h4>
+                <p>(11) 97613-1029</p>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-method-icon">
+                <i data-lucide="mail"></i>
+              </div>
+              <div>
+                <h4>E-mail</h4>
+                <p>contato@euforia.com.br</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-media">
+            <h4>Siga-nos nas Redes Sociais</h4>
+            <div class="social-buttons">
+              <button class="btn btn-outline" onclick="openInstagram()">
+                <i data-lucide="instagram"></i>
+                Instagram
+              </button>
+              <button class="btn btn-outline" onclick="openFacebook()">
+                <i data-lucide="facebook"></i>
+                Facebook
+              </button>
+              <button class="btn btn-ifood-outline" onclick="openIFood()">
+                <i data-lucide="utensils-crossed"></i>
+                iFood
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-icon">
+              <i data-lucide="heart"></i>
+            </div>
+            <span class="footer-logo-text">Euforia</span>
+          </div>
+          <p>
+            Criamos momentos especiais com doces únicos e sabores que despertam euforia. 
+            Cada produto é feito com amor e ingredientes selecionados.
+          </p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/confeitariaeuforia/" target="_blank" class="social-link">
+              <i data-lucide="instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/euforia.confeitaria" target="_blank" class="social-link">
+              <i data-lucide="facebook"></i>
+            </a>
+            <a href="mailto:contato@euforia.com.br" class="social-link">
+              <i data-lucide="mail"></i>
+            </a>
+            <a href="https://wa.me/5511951559885" target="_blank" class="social-link">
+              <i data-lucide="phone"></i>
+            </a>
+            <a href="https://www.ifood.com.br/delivery/sao-paulo-sp/euforia-confeitaria" target="_blank" class="social-link">
+              <i data-lucide="utensils-crossed"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h3>Links Rápidos</h3>
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h3>Contato</h3>
+          <div class="footer-contact-item">
+            <i data-lucide="phone"></i>
+            <span>(11) 97613-1029</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="mail"></i>
+            <span>contato@euforia.com.br</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="map-pin"></i>
+            <span>
+              Rua das Flores, 123<br>
+              São Paulo - SP
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>&copy; 2024 Euforia Confeitaria. Todos os direitos reservados.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Termos de Uso</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div class="sidebar" id="cart-sidebar">
+    <div class="sidebar-content">
+      <div class="sidebar-header">
+        <h3>
+          <i data-lucide="shopping-bag"></i>
+          Seu Carrinho
+          <span class="sidebar-badge" id="cart-sidebar-count">0</span>
+        </h3>
+        <button class="btn-close" onclick="closeCart()">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="sidebar-body" id="cart-items">
+        <div class="empty-state">
+          <i data-lucide="shopping-bag" class="empty-icon"></i>
+          <h3>Carrinho vazio</h3>
+          <p>Adicione alguns doces deliciosos ao seu carrinho</p>
+          <button class="btn btn-primary" onclick="closeCart(); scrollToSection('produtos')">
+            Continuar Comprando
+          </button>
+        </div>
+      </div>
+
+      <div class="sidebar-footer" id="cart-footer" style="display: none;">
+        <div class="cart-summary">
+          <div class="summary-row">
+            <span>Subtotal:</span>
+            <span id="cart-subtotal">R$ 0,00</span>
+          </div>
+          <div class="summary-row">
+            <span>Entrega:</span>
+            <span class="text-green">Grátis</span>
+          </div>
+          <div class="summary-total">
+            <span>Total:</span>
+            <span id="cart-total">R$ 0,00</span>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-lg" onclick="finalizarPedido()">
+          <i data-lucide="credit-card"></i>
+          Finalizar Pedido
+        </button>
+        <button class="btn btn-outline" onclick="closeCart()">
+          Continuar Comprando
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wishlist Sidebar -->
+  <div class="sidebar" id="wishlist-sidebar">
+    <div class="sidebar-content">
+      <div class="sidebar-header">
+        <h3>
+          <i data-lucide="heart"></i>
+          Lista de Desejos
+          <span class="sidebar-badge" id="wishlist-sidebar-count">0</span>
+        </h3>
+        <button class="btn-close" onclick="closeWishlist()">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="sidebar-body" id="wishlist-items">
+        <div class="empty-state">
+          <i data-lucide="heart" class="empty-icon"></i>
+          <h3>Lista vazia</h3>
+          <p>Adicione produtos aos favoritos clicando no ❤️</p>
+          <button class="btn btn-primary" onclick="closeWishlist(); scrollToSection('produtos')">
+            Explorar Produtos
+          </button>
+        </div>
+      </div>
+
+      <div class="sidebar-footer" id="wishlist-footer" style="display: none;">
+        <button class="btn btn-primary btn-lg" onclick="addAllToCart()">
+          <i data-lucide="shopping-cart"></i>
+          Adicionar Todos ao Carrinho
+        </button>
+        <button class="btn btn-outline" onclick="closeWishlist()">
+          Continuar Navegando
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating iFood Button -->
+  <div class="floating-ifood">
+    <button class="floating-btn" onclick="openIFood()" title="Pedir no iFood">
+      <i data-lucide="utensils-crossed"></i>
+      <div class="tooltip">🍰 Pedir no iFood</div>
+    </button>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Backdrop -->
+  <div class="backdrop" id="backdrop" onclick="closeAllSidebars()"></div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
